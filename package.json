@@ -1,0 +1,17 @@
+{
+  "name": "changePilot",
+  "version": "0.1.0",
+  "description": "Evidence-first PR regression analysis CLI",
+  "type": "module",
+  "bin": {
+    "cpa": "./dist/src/cli/commands/index.js"
+  },
+  "scripts": {
+    "dev": "tsx src/cli/index.ts",
+    "build": "tsc",
+    "start": "node dist/src/cli/commands/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  }
+}

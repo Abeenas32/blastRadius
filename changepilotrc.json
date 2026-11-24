@@ -1,7 +1,0 @@
-{
-    "baseBranch": "main",
-    "installCommand": "npm ci",
-    "testCommand": "npx vitest run --reporter=json",
-    "reporter": "vitest",
-    "parallel": false
-  }

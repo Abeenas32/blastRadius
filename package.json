@@ -7,7 +7,7 @@
     "cpa": "./dist/src/cli/commands/index.js"
   },
   "scripts": {
-    "dev": "tsx src/cli/index.ts",
+    "dev": "tsx bin/changepilot.ts",
     "build": "tsc",
     "start": "node dist/src/cli/commands/index.js",
     "test": "vitest run",

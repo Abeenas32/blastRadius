@@ -9,7 +9,7 @@ const makeErrorFactory =
     );
 
 export const configError = makeErrorFactory("CONFIG_ERROR");
-export const validationError = makeErrorFactory("VALIDATION_ERROR");
+export const notImplementedError  = makeErrorFactory("VALIDATION_ERROR");
 
 export const isChangePilotError = (error: unknown): error is ChangePilotError =>
   error instanceof Error &&

@@ -66,7 +66,8 @@ export async function runShell(
     live.add(pid);
     // The moment the shell itself exits, kill anything it left running in the background. Otherwise such a
     // process keeps the output pipe open and `await sub` would block until the timeout, though the command is done.
-    sub.nodeChildProcess.once("exit", () => killGroup(pid)); // nodeChildProcess = execa's documented escape hatch to the native process
+    // nodeChildProcess = execa's documented escape hatch to the native process
+    sub.nodeChildProcess.once("exit", () => killGroup(pid)); 
   }
 
   let timedOut = false;
@@ -82,7 +83,8 @@ export async function runShell(
     clearTimeout(timer);
     if (pid !== undefined) {
       live.delete(pid);
-      killGroup(pid); // also removes anything the command left running in the background
+      // also removes anything the command left running in the background
+      killGroup(pid); 
     }
   }
 }

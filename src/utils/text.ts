@@ -1,4 +1,5 @@
-// Small text helpers shared by the runner, the diff code and the baseline prompt.
+/* // Small text helpers shared by the runner, the diff code and the baseline prompt.
+// text-trimming helpers used to keep prompts, diffs, and test logs within size limits without losing critical context. */
 
 /** Last `max` characters. Error output usually carries the useful part at the end. */
 export const tail = (s: string, max: number): string => (s.length <= max ? s : s.slice(s.length - max));

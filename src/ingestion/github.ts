@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ingestionError } from "../../utils/error.js";
+import { ingestionError } from "../utils/error.js";
 
 export type gitHubRepo = { owner: string; repo: string };
 

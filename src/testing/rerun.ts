@@ -1,10 +1,10 @@
 import { access } from "node:fs/promises";
 import { join } from "node:path";
-import { log } from "../src/utils/logger.js";
-import { tail } from "../src/utils/text.js";
+import { log } from "../utils/logger.js";
+import { tail } from "../utils/text.js";
 import { runSuite } from "./runner.js";
 import type { CommitView, Observation, SuiteRun, TestResult } from "./types.js"; 
-import type { Config }  from "../src/config/schema.js";
+import type { Config }  from "../config/schema.js";
  
 
 // A commit we can test (`root` = installed worktree) or one that could not be set up.

@@ -1,7 +1,8 @@
 import { InvalidArgumentError, type Command } from "commander";
 import { loadConfig } from "../../config/load.js";
 import { analyze } from "../../orchestrator/orchestrator.js";
-
+import { needsInvestigation } from "../../classifier/types.js";
+import type { AnalyzeResult } from "../../orchestrator/types.js"
 function parsePositiveInt(value: string): number {
   const n = Number(value);
   if (!Number.isInteger(n) || n <= 0) throw new InvalidArgumentError("must be a positive integer");
@@ -14,6 +15,16 @@ type AnalyzeFlags = {
   config?: string;
   json?: boolean;
 };
+function formatResult(r: AnalyzeResult): string {
+  const lines = [
+    `PR #${r.prNumber}   baseline ${r.mergeBase.slice(0, 8)}   head ${r.headSha.slice(0, 8)}`,
+    `Classification: ${r.classification}${needsInvestigation(r.classification) ? "  (would be investigated by the agent: Phase 2)" : ""}`,
+    r.reason,
+  ];
+  for (const t of r.tests) lines.push(`  ${t.classification.padEnd(22)} ${t.id}`);
+  if (r.testsOmitted > 0) lines.push(`  ... and ${r.testsOmitted} more`);
+  return lines.join("\n");
+}
 
 export function registerAnalyze(program: Command): void {
   program

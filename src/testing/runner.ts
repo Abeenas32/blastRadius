@@ -2,10 +2,10 @@ import { randomUUID } from "node:crypto";
 import { readFile, realpath, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import type { Config } from "../src/config/schema.js";
-import { runShell, shellQuote } from "../src/utils/exec.js";
-import { normalizeFailure, stripAnsi, stripStackFrames } from "../src/utils/normalize.js";
-import { parseJestLikeReport } from "../tests/parsers/jestLIke.js";
+import type { Config } from "../config/schema.js";
+import { runShell, shellQuote } from "../utils/exec.js";
+import { normalizeFailure, stripAnsi, stripStackFrames } from "../utils/normalize.js";
+import { parseJestLikeReport } from "../testing/parsers/jestLike.js";
 import type { SuiteRun } from "./types.js";
 
 /** Flags that make the runner write its JSON report to a file (not stdout, which tests may pollute). */
